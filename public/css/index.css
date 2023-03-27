@@ -1,0 +1,188 @@
+@import "layout.css";
+
+body {
+    background-image: url(/public/img/dragon-scales.svg);
+    background-attachment: fixed;
+}
+
+#about-section {
+    grid-area: about;
+    width: 100%;
+    height: 100%;
+    padding: 8%;
+    background-color: #0000001f;
+    border-radius: 5%;
+    margin: 4%;
+    backdrop-filter: blur(8px);
+    color: black;
+    font-variant: small-caps;
+}
+
+div>a {
+    color: #8dffbf;
+    text-decoration: none;
+    font-size: xx-large;
+}
+
+.blog_element_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog_element1,
+.blog_element2,
+.blog_element3 {
+    width: 88%;
+    padding: 1%;
+    background-color: #0000001f;
+    backdrop-filter: blur(8px);
+    padding-left: 20%;
+    border-radius: 10px;
+}
+
+.blog_element1::after {
+    content: '';
+    background: url('/public/img/blog_1.png');
+    display: block;
+    width: 17%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 9%;
+    transform: skewX(15deg);
+    background-size: cover;
+    background-position-x: center;
+
+}
+
+.blog_element2::after {
+    content: '';
+    background: url('/public/img/blog_2.png');
+    display: block;
+    width: 17%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 9%;
+    transform: skewX(15deg);
+    background-size: cover;
+    background-position-x: center;
+
+}
+
+.blog_element3::after {
+    content: '';
+    background: url('/public/img/blog_3.png');
+    display: block;
+    width: 17%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 9%;
+    transform: skewX(15deg);
+    background-size: cover;
+    background-position-x: center;
+
+}
+
+#blog-section {
+    grid-area: blog;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.about-heading {
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    margin: 5vh 0;
+    text-align: justify;
+}
+
+#about-image {
+    height: 35vh;
+    object-fit: cover;
+}
+
+.button-33 {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+@media screen and (max-width: 1080px) {
+    #about-section {
+        margin: 0 !important;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    #blog-section {
+        align-items: center;
+    }
+
+    #about-section {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    body {
+        font-size: 12px !important;
+        grid-template-columns: 100vw;
+        grid-template-rows: 10vh 90vh 98vh auto;
+        grid-template-areas:
+            "nav"
+            "about"
+            "blog"
+            "ftr";
+
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 10px !important;
+        grid-template-columns: 100vw;
+        grid-template-rows: 10vh 80vh 40vh;
+        grid-template-areas:
+            "nav"
+            "blog"
+            "ftr";
+
+    }
+}
