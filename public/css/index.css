@@ -1,7 +1,7 @@
 @import "layout.css";
 
 body {
-    background-image: url(/public/img/dragon-scales.svg);
+    background-image: url(public/img/dragon-scales.svg);
     background-attachment: fixed;
 }
 
@@ -44,7 +44,7 @@ div>a {
 
 .blog_element1::after {
     content: '';
-    background: url('/public/img/blog_1.png');
+    background: url('public/img/blog_1.png');
     display: block;
     width: 17%;
     height: 100%;
@@ -61,7 +61,7 @@ div>a {
 
 .blog_element2::after {
     content: '';
-    background: url('/public/img/blog_2.png');
+    background: url('public/img/blog_2.png');
     display: block;
     width: 17%;
     height: 100%;
@@ -78,7 +78,7 @@ div>a {
 
 .blog_element3::after {
     content: '';
-    background: url('/public/img/blog_3.png');
+    background: url('public/img/blog_3.png');
     display: block;
     width: 17%;
     height: 100%;
