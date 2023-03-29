@@ -1,8 +1,9 @@
-function myFunction() {
-  let x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+const share = document.querySelector('.share');
+
+setTimeout(() => {
+  share.classList.add("hover");
+}, 1000);
+
+setTimeout(() => {
+  share.classList.remove("hover");
+}, 3000);

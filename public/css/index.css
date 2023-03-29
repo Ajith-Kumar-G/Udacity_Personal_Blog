@@ -8,7 +8,7 @@ body {
 #about-section {
     grid-area: about;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     padding: 8%;
     background-color: #0000001f;
     border-radius: 5%;
@@ -24,74 +24,6 @@ div>a {
     font-size: xx-large;
 }
 
-.blog_element_head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.blog_element1,
-.blog_element2,
-.blog_element3 {
-    width: 88%;
-    padding: 1%;
-    background-color: #0000001f;
-    backdrop-filter: blur(8px);
-    padding-left: 20%;
-    border-radius: 10px;
-}
-
-.blog_element1::after {
-    content: '';
-    background: url('../../public/img/blog_1.png');
-    display: block;
-    width: 17%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    border-radius: 9%;
-    transform: skewX(15deg);
-    background-size: cover;
-    background-position-x: center;
-
-}
-
-.blog_element2::after {
-    content: '';
-    background: url('../../public/img/blog_2.png');
-    display: block;
-    width: 17%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    border-radius: 9%;
-    transform: skewX(15deg);
-    background-size: cover;
-    background-position-x: center;
-
-}
-
-.blog_element3::after {
-    content: '';
-    background: url('../../public/img/blog_3.png');
-    display: block;
-    width: 17%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    border-radius: 9%;
-    transform: skewX(15deg);
-    background-size: cover;
-    background-position-x: center;
-
-}
 
 #blog-section {
     grid-area: blog;
@@ -101,6 +33,9 @@ div>a {
     flex-direction: column;
     justify-content: space-evenly;
     color: black;
+    flex-wrap: wrap;
+    row-gap: 5%;
+    column-gap: 5%;
 }
 
 .about-heading {
@@ -117,6 +52,78 @@ div>a {
 #about-image {
     height: 35vh;
     object-fit: cover;
+}
+
+
+/* Cards */
+
+.card-container {
+    padding: 0 1rem;
+    counter-reset: card;
+    margin: 2%;
+}
+
+.card {
+    margin: 1em 0;
+    border-radius: 1rem;
+    box-shadow: -12px 12px 24px #212121,
+        12px -12px 24px #353535;
+    min-height: 500px;
+    display: grid;
+    grid-template-rows: 1.5fr 1fr 75px;
+    background-color: #0000001f;
+    backdrop-filter: blur(8px);
+}
+
+.card img {
+    max-inline-size: 100%;
+    min-height: 100%;
+    object-fit: cover;
+
+}
+
+.card-header {
+    aspect-ratio: 16/12;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+    position: relative;
+}
+
+.card-header::after {
+    counter-increment: card;
+    /* Increment the value of the counter by 1 */
+    content: "0" counter(card);
+    position: absolute;
+    inset: auto 0 0 auto;
+    margin-bottom: .5em;
+    font-size: 6em;
+    color: var(--accent);
+    font-weight: 800;
+    opacity: .75;
+
+}
+
+.card-body,
+.card-footer {
+    padding: 0 1rem;
+}
+
+.card-footer {
+    display: grid;
+    align-items: center;
+
+
+}
+
+.card h3 {
+    margin: 0;
+    position: relative;
+}
+
+.card-body p {
+    font-weight: 200;
+    font-size: 1rem;
+    margin: 0;
 }
 
 .button-33 {
@@ -139,10 +146,46 @@ div>a {
 }
 
 .button-33:hover {
-    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
-    transform: scale(1.05) rotate(-1deg);
+    transform: translate(0px, -2px);
+    box-shadow: 4px 5px;
+    transition-property: box-shadow;
+    transition-timing-function: ease-in-out;
 }
 
+@media only screen and (min-width: 400px) {
+
+    .card-container {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        max-width: 92%;
+        margin: 2% auto;
+
+
+    }
+
+    .card h3 {
+        margin: 1em 0 .25em 0;
+        position: relative;
+    }
+
+    .card-header::after {
+        margin-bottom: 0em;
+    }
+
+}
+
+@media only screen and (min-width: 900px) {
+    .card-container {
+        max-width: 95%;
+        gap: 2rem;
+
+
+    }
+}
+
+/* cards end */
 @media screen and (max-width: 1080px) {
     #about-section {
         margin: 0 !important;
@@ -164,7 +207,7 @@ div>a {
     body {
         font-size: 12px !important;
         grid-template-columns: 100vw;
-        grid-template-rows: 10vh 90vh 98vh auto;
+        grid-template-rows: 10vh 90vh auto 20vh;
         grid-template-areas:
             "nav"
             "about"
@@ -178,7 +221,7 @@ div>a {
     body {
         font-size: 10px !important;
         grid-template-columns: 100vw;
-        grid-template-rows: 10vh 80vh 40vh;
+        grid-template-rows: 10vh auto 20vh;
         grid-template-areas:
             "nav"
             "blog"
